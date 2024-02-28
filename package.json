@@ -23,8 +23,5 @@
     "csv-parser": "^3.0.0",
     "mocha": "^10.3.0",
     "save-dev": "^0.0.1-security"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
   }
 }
