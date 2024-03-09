@@ -1,3 +1,5 @@
+// TeamGenerator.js
+
 class TeamGenerator {
   constructor(players, playersPerTeam = 3) {
     this.players = players;
@@ -6,7 +8,7 @@ class TeamGenerator {
   }
 
   generateTeams() {
-    let shuffledPlayers = [...this.players].sort(() => 0.5 - Math.random()); // Mélange aléatoire des joueurs
+    let shuffledPlayers = [...this.players].sort(() => 0.5 - Math.random());
     let teamIndex = 0;
 
     while (shuffledPlayers.length > 0) {
@@ -19,13 +21,41 @@ class TeamGenerator {
       this.teams.push(team);
       teamIndex++;
     }
+
+    // Tri des équipes par ordre alphabétique de leur nom
+    this.teams.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   getTeams() {
     return this.teams;
   }
+
+  addPlayers(newPlayers) {
+    this.players = [...this.players, ...newPlayers];
+  }
+
+  removePlayers(playersToRemove) {
+    this.players = this.players.filter(player => !playersToRemove.includes(player));
+  }
+
+  resetTeams() {
+    this.teams = [];
+  }
+
+  getPlayers() {
+    return this.players;
+  }
+
+
+  
+
+  setPlayersPerTeam(num) {
+    this.playersPerTeam = num;
+  }
+
+  getTotalTeams() {
+    return this.teams.length;
+  }
 }
 
-export default  TeamGenerator
-// Exemple d'utilisation
-
+export default TeamGenerator;
