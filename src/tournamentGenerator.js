@@ -1,5 +1,3 @@
-// tournamentGenerator.js
-
 class TournamentGenerator {
     constructor(teams) {
         this.teams = teams;
@@ -41,6 +39,10 @@ class TournamentGenerator {
         this.simulatePoulesMatches();
         this.generateFinalStages();
         return this.finalStages;
+    }
+
+    determineWinner() {
+        return this.finalStages[this.finalStages.length - 1][0];
     }
 
     getPoules() {
